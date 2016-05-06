@@ -330,7 +330,6 @@ declare_features! (
     // `extern "x86-interrupt" fn()`
     (active, abi_x86_interrupt, "1.17.0", Some(40180)),
 
-
     // Allows the `catch {...}` expression
     (active, catch_expr, "1.17.0", Some(31436)),
 
@@ -364,6 +363,9 @@ declare_features! (
     // global allocators and their internals
     (active, global_allocator, "1.20.0", None),
     (active, allocator_internals, "1.20.0", None),
+
+    // `extern "avr-interrupt" fn()`
+    (active, abi_avr_interrupt, "1.18.0", Some(000)),
 );
 
 declare_features! (
@@ -1120,6 +1122,10 @@ impl<'a> PostExpansionVisitor<'a> {
             Abi::X86Interrupt => {
                 gate_feature_post!(&self, abi_x86_interrupt, span,
                                    "x86-interrupt ABI is experimental and subject to change");
+            }
+            Abi::AvrInterrupt | Abi::AvrNonBlockingInterrupt => {
+                gate_feature_post!(&self, abi_avr_interrupt, span,
+                                   "avr-interrupt and avr-non-blocking-interrupt ABIs are experimental and subject to change");
             },
             // Stable
             Abi::Cdecl |
