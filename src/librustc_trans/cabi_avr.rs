@@ -15,17 +15,17 @@ use context::CrateContext;
 
 fn classify_ret_ty<'a, 'tcx>(ccx: &CrateContext<'a, 'tcx>, ret: &mut ArgType<'tcx>) {
     if ret.layout.is_aggregate()  {
-        ret.extend_integer_width_to(8); // Is 8 correct?
-    } else {
         ret.make_indirect(ccx);
+    } else {
+        ret.extend_integer_width_to(8); // Is 8 correct?
     }
 }
 
 fn classify_arg_ty<'a, 'tcx>(ccx: &CrateContext<'a, 'tcx>, arg: &mut ArgType<'tcx>) {
     if arg.layout.is_aggregate() {
-        arg.extend_integer_width_to(8);
-    } else {
         arg.make_indirect(ccx);
+    } else {
+        arg.extend_integer_width_to(8);
     }
 }
 
