@@ -9,6 +9,8 @@ It uses the [AVR-LLVM backend](https://github.com/avr-llvm/llvm).
 
 ## Compiling
 
+**TODO**: Update this for the TOML-based build configuration.
+
 This will compile Rust with AVR support. This will not create a
 fully-fledged compiler, however - it does not compile any libraries
 such as `libcore` or `liblibc`. To do this, the `--target=avr-atmel-none`
@@ -29,7 +31,7 @@ make
 ```
 
 **NOTE**: For debugging, it is best to pass the
-`--enable-debug --disable-docs --enable-llvm-assertions --enable-debug-assertions`
+`--enable-debug --disable-docs --enable-llvm-assertions --enable-debug-assertions --enable-optimize`
 flags to `configure`. This will help catch bugs that could be otherwise unnoticed.
 
 **NOTE**: This will create a Rust compiler which targets the same architecture
