@@ -1,6 +1,7 @@
 # Rust with AVR support
 
 [![Build Status](https://travis-ci.org/avr-rust/rust.svg)](https://travis-ci.org/avr-rust/rust)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/avr-rust)
 
 This project adds support for the [AVR](https://en.wikipedia.org/wiki/Atmel_AVR)
 microcontroller to Rust.
